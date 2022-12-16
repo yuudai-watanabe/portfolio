@@ -1,0 +1,58 @@
+/* ===============================================
+#singleMain
+=============================================== */
+.singleMain
+{
+    background-color: rgba(69, 161, 207, .2);
+}
+
+.singleMain__inner
+{
+    max-width: 900px;
+}
+
+.singleMain__container
+{
+    padding: 100px 80px;
+
+    border-radius: 20px;
+    background-color: #fff;
+}
+
+@media screen and (max-width: 767px)
+{
+    .singleMain__container
+    {
+        padding: 60px 20px;
+    }
+}
+.singleMain__container h1
+{
+    font-size: 36px;
+    font-size: 3.6rem;
+
+    margin-bottom: 40px;
+
+    text-align: center;
+}
+
+@media screen and (max-width: 767px)
+{
+    .singleMain__container h1
+    {
+        font-size: 24px;
+        font-size: 2.4rem;
+    }
+}
+.singleMain__time
+{
+    display: block;
+
+    margin-bottom: 40px;
+
+    text-align: right;
+}
+
+/* ==========================================================================
+   singlepage
+   ========================================================================== */

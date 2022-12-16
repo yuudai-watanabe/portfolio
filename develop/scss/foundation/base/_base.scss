@@ -1,0 +1,71 @@
+@use "../../global" as *;
+
+// #Base
+// --------------------------------------------------------------------------
+//  Baseレイヤーにはプロジェクトにおける、基本的なベーススタイルを定義します。
+//  要素セレクタや属性セレクタなど、詳細度はできるかぎり低く保っておきます。
+//  基本的にclass属性は使用しません。
+/* Base
+   ----------------------------------------------------------------- */
+
+html {
+    font-size: 62.5%;
+    box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+body {
+    color: $color-text;
+    font-family: $font-family-common;
+    font-weight: $font-weight-normal;
+    line-height: 1.5;
+    word-break: normal;
+    word-wrap: break-word;
+    -webkit-text-size-adjust: 100%;
+    letter-spacing: 0em;
+    @include fontsize(16);
+
+    &.is-fixed {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+a {
+    color: $color-text;
+    text-decoration: none;
+    transition: opacity $duration;
+
+    &:hover {
+        opacity: 0.8;
+    }
+}
+
+p {
+    line-height: 1.45;
+    letter-spacing: 0.06em;
+}
+
+/* フルードイメージにします。 */
+img {
+    max-width: 100%;
+    height: auto;
+    vertical-align: middle;
+}
+
+/* svgのIEバグ回避 */
+img[src$=".svg"] {
+    width: 100%;
+    height: auto;
+}
+
+code,
+pre {
+    font-family: Consolas, Menlo, Courier, monospace;
+}

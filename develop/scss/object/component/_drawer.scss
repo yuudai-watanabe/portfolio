@@ -1,0 +1,126 @@
+@use "../../global" as *;
+.c-drawer {
+    display: none;
+
+    @include mq(medium, max, true) {
+        position: fixed;
+        display: block;
+        right: 15px;
+        top: 15px;
+        z-index: 100;
+    }
+    /* チェックボックスは非表示に */
+    &__hidden {
+        display: none;
+    }
+
+    /* ハンバーガーアイコンの設置スペース */
+    &__open {
+        display: flex;
+        margin: auto 0 auto auto;
+        height: 40px;
+        width: 43px;
+        background-color: #fff;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        z-index: 103; /* 重なり順を一番下に */
+        cursor: pointer;
+    }
+
+    /* ハンバーガーメニューのアイコン */
+    &__open span,
+    &__open span::before,
+    &__open span::after {
+        content: "";
+        display: block;
+        height: 3px;
+        width: 30px;
+        background: #000;
+        transition: 0.5s;
+        position: absolute;
+    }
+
+    /* 三本線のうち一番上の棒の位置調整 */
+    &__open span::before {
+        bottom: 11px;
+    }
+
+    /* 三本線のうち一番下の棒の位置調整 */
+    &__open span::after {
+        top: 11px;
+    }
+
+    /* アイコンがクリックされたら真ん中の線を透明にする */
+    #drawer-check:checked ~ .c-drawer__open span {
+        background: rgba(0, 0, 0, 0);
+    }
+
+    #drawer-check:checked ~ .c-drawer__open {
+    }
+
+    /* アイコンがクリックされたらアイコンが×印になように上下の線を回転 */
+    #drawer-check:checked ~ .c-drawer__open span::before {
+        bottom: 0;
+        transform: rotate(45deg);
+    }
+
+    #drawer-check:checked ~ .c-drawer__open span::after {
+        top: 0;
+        transform: rotate(-45deg);
+    }
+
+    #drawer-check:checked ~ .c-drawer__content {
+        left: 0;
+    }
+
+    /* メニューのデザイン*/
+    &__content {
+        width: 100%; /* ここの割合を小さくすると閉じる部分の領域が広がる */
+        position: fixed;
+        left: 100%;
+        height: 100%;
+        z-index: 102; /* 重なり順を一番上に */
+        background: #fff;
+        top: 0px;
+        transition: all 0.5s;
+        padding: 70px 0px;
+        height: 100%;
+        overflow-y: scroll;
+
+        @include mq(medium, max, true) {
+            padding: 80px 0px;
+        }
+    }
+    /* メニューを閉じるための要素のデザイン*/
+    &__close {
+        width: 100%;
+        height: 100%;
+        background: transparent;
+        position: fixed;
+        top: 0px;
+        left: 100%; /* 閉じるための要素を画面外へ */
+        z-index: 101; /* 重なり順をメニューより下に*/
+        transition: 0.5s;
+    }
+
+    #drawer-check:checked ~ .c-drawer__close {
+        left: 0; /* 閉じるための要素を画面内へ */
+    }
+
+    &__lists {
+        margin-bottom: 36px;
+
+        li {
+            color: $color-text;
+            @include fontsize(20);
+            display: block;
+            border-bottom: 1px solid $color-primary;
+
+            a {
+                display: block;
+                padding: 10px 15px;
+            }
+        }
+    }
+}

@@ -1,0 +1,20 @@
+@use "../global" as *;
+/* Container
+   ----------------------------------------------------------------- */
+.l-container {
+    overflow: hidden;
+}
+
+.l-main {
+    &__inner {
+        @include mq {
+            @include inner;
+            position: relative;
+        }
+
+        @include mq(medium, max, true) {
+            @include inner_sp;
+            position: relative;
+        }
+    }
+}

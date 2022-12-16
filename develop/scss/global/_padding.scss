@@ -1,0 +1,10 @@
+//共通padding
+
+//下層ページ上部
+@mixin sub-page-padding {
+    padding-top: 78px;
+    
+    @include mq(medium, max, true) {
+        padding-top: 55px;
+    }
+}

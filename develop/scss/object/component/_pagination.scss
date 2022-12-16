@@ -1,0 +1,39 @@
+@use "../../global" as *;
+/* ===============================================
+#c-pagination
+=============================================== */
+.c-pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    span,
+    a {
+        display: block;
+        background-color: #fff;
+        color: $color-primary;
+        border: 1px solid $color-primary;
+        text-align: center;
+        width: 34px;
+        padding: 5px 0;
+        margin: 120px 5px 0 5px;
+
+        @include mq(medium, max, true) {
+            margin: 80px 5px 0 5px;
+        }
+    }
+
+    span.current {
+        background-color: $color-primary;
+        color: #fff;
+    }
+
+    a.next,
+    a.prev {
+        width: auto;
+        padding: 5px 10px;
+        @include mq(medium, max, true) {
+            white-space: nowrap;
+        }
+    }
+}

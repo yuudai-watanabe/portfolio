@@ -1,0 +1,48 @@
+@use "../../global" as *;
+// PCのみ表示
+.pc {
+    @include mq(large, max, true) {
+        display: none;
+    }
+}
+
+// PCとTBのみ表示
+.pc_tb {
+    @include mq(medium, max, true) {
+        display: none;
+    }
+}
+
+// PCとSPのみ表示
+.pc_sp {
+    @include mq(large, max, true) {
+        @include mq {
+            display: none;
+        }
+    }
+}
+
+// TBのみ表示
+.tb {
+    @include mq(large) {
+        display: none;
+    }
+
+    @include mq(medium, max, true) {
+        display: none;
+    }
+}
+
+// TBとSPのみ表示
+.tb_sp {
+    @include mq(large) {
+        display: none;
+    }
+}
+
+// SPのみ表示
+.sp {
+    @include mq {
+        display: none;
+    }
+}

@@ -1,0 +1,205 @@
+// ==================================================================
+// pxをvw変換する
+// ==================================================================
+// viewportはスートフォン版デザインデータのサイズに合わせる
+$viewport: 750;
+// ==================================================================
+// フォントサイズをvwで指定
+// ==================================================================
+
+// 第一引数で基準となる画面幅のフォントサイズ、第二引数で基準となる画面幅を入力
+@function get_vw($size, $viewport: 750) {
+    $rate: 100 / $viewport;
+    @return round-decimal(($rate * $size * 1vw), 2); //小数点2位を四捨五入して返す
+}
+
+// 呼び出し → @include fontsize_vw(16);
+@mixin fontsize_vw($font_size: 10) {
+    font-size: $font_size * 1px;
+    font-size: get_vw($font_size);
+}
+
+// ==================================================================
+// 値をvwに変換
+// ==================================================================
+// 呼び出し → @include vw(20);
+// usage
+@function px_to_vw($number) {
+    @return $number / $viewport * 100 * 1vw;
+}
+
+// ==================================================================
+// width、heightをvwで指定
+// ==================================================================
+// widthをVWに変換
+// 呼び出し → @include width_vw(400);
+@mixin width_vw($width_size) {
+    width: $width_size / $viewport * 100 * 1vw;
+}
+
+// heightをVWに変換
+// 呼び出し → @include height_vw(300);
+@mixin height_vw($height_size) {
+    height: $height_size / $viewport * 100 * 1vw;
+}
+
+// ==================================================================
+// marginをvwで指定
+// ==================================================================
+// vw指定したい要素のmargin(px) ÷ 親要素の横幅(px) × 100
+// 呼び出し → @include margin_vw(20, 5, 20, 5);
+@mixin margin_vw($t, $r, $b, $l) {
+    // 数値のときのみ計算（autoを除外)
+    @if (type-of($t) ==number) {
+        $t: round-decimal((($t / $viewport) * 100 * 1vw), 2);
+    }
+
+    @if (type-of($r) ==number) {
+        $r: round-decimal((($r / $viewport) * 100 * 1vw), 2);
+    }
+
+    @if (type-of($b) ==number) {
+        $b: round-decimal((($b / $viewport) * 100 * 1vw), 2);
+    }
+
+    @if (type-of($l) ==number) {
+        $l: round-decimal((($l / $viewport) * 100 * 1vw), 2);
+    }
+
+    margin: $t $r $b $l;
+}
+@mixin margin_vw_top($t) {
+    $t: round-decimal((($t / $viewport) * 100 * 1vw), 2);
+    margin-top: $t;
+}
+@mixin margin_vw_right($r) {
+    $r: round-decimal((($r / $viewport) * 100 * 1vw), 2);
+    margin-right: $r;
+}
+@mixin margin_vw_bottom($b) {
+    $b: round-decimal((($b / $viewport) * 100 * 1vw), 2);
+    margin-bottom: $b;
+}
+@mixin margin_vw_left($l) {
+    $l: round-decimal((($l / $viewport) * 100 * 1vw), 2);
+    margin-left: $l;
+}
+
+// ==================================================================
+// paddingをvwで指定
+// ==================================================================
+// vw指定したい要素のpadding(px) ÷ 親要素の横幅(px) × 100
+// 呼び出し → @include padding_vw(20, 5, 20, 5);
+@mixin padding_vw($t, $r, $b, $l) {
+    // 数値のときのみ計算（autoを除外)
+    @if (type-of($t) ==number) {
+        $t: round-decimal((($t / $viewport) * 100 * 1vw), 2);
+    }
+
+    @if (type-of($r) ==number) {
+        $r: round-decimal((($r / $viewport) * 100 * 1vw), 2);
+    }
+
+    @if (type-of($b) ==number) {
+        $b: round-decimal((($b / $viewport) * 100 * 1vw), 2);
+    }
+
+    @if (type-of($l) ==number) {
+        $l: round-decimal((($l / $viewport) * 100 * 1vw), 2);
+    }
+    padding: $t $r $b $l;
+}
+@mixin padding_vw_top($t) {
+    $t: round-decimal((($t / $viewport) * 100 * 1vw), 2);
+    padding-top: $t;
+}
+@mixin padding_vw_right($r) {
+    $r: round-decimal((($r / $viewport) * 100 * 1vw), 2);
+    padding-right: $r;
+}
+@mixin padding_vw_bottom($b) {
+    $b: round-decimal((($b / $viewport) * 100 * 1vw), 2);
+    padding-bottom: $b;
+}
+@mixin padding_vw_left($l) {
+    $l: round-decimal((($l / $viewport) * 100 * 1vw), 2);
+    padding-left: $l;
+}
+
+// ==================================================================
+// positionをvwで指定
+// ==================================================================
+// left right →　％指定したい要素の left 又は right 値(px) ÷ 親要素の横幅(px) × 100
+// top bottom → ％指定したい要素の top 又は bottom 値(px) ÷ 親要素の高さ(px) × 100
+
+// top値
+// ==================================================================
+// @include position_vw_top(50);
+@mixin position_vw_top($t) {
+    $top: $t / $viewport * 100 * 1vw;
+    top: round-decimal($top, 2);
+}
+
+// right値
+// ==================================================================
+// @include position_vw_right(50);
+@mixin position_vw_right($r) {
+    $right: $r / $viewport * 100 * 1vw;
+    right: round-decimal($right, 2);
+}
+
+// bottom値
+// ==================================================================
+// @include position_vw_bottom(50);
+@mixin position_vw_bottom($b) {
+    $bottom: $b / $viewport * 100 * 1vw;
+    bottom: round-decimal($bottom, 2);
+}
+
+// left値
+// ==================================================================
+// @include position_vw_left(50);
+@mixin position_vw_left($l) {
+    $left: $l / $viewport * 100 * 1vw;
+    left: round-decimal($left, 2);
+}
+
+// ==================================================================
+// box-shadowをvwで指定
+// ==================================================================
+// @include box-shadow_vw(5,5,5, rgba(0, 0, 0, .8));
+@mixin box-shadow_vw($pxX, $pxY, $pxBlur, $color) {
+    @if ($pxX > 0) {
+        $pxX: round-decimal((($pxX / $viewport) * 100 * 1vw), 2);
+    }
+
+    @if ($pxY > 0) {
+        $pxY: round-decimal((($pxY / $viewport) * 100 * 1vw), 2);
+    }
+
+    @if ($pxBlur > 0) {
+        $pxBlur: round-decimal((($pxBlur / $viewport) * 100 * 1vw), 2);
+    }
+
+    box-shadow: $pxX $pxY $pxBlur $color;
+}
+
+// ==================================================================
+// filter-shadowをvwで指定
+// ==================================================================
+// @include filter_shadow_vw(5, 5, 5, rgba(0, 0, 0, .8));
+@mixin filter_shadow_vw($pxX, $pxY, $pxBlur, $color) {
+    @if ($pxX > 0) {
+        $pxX: round-decimal((($pxX / $viewport) * 100 * 1vw), 2);
+    }
+
+    @if ($pxY > 0) {
+        $pxY: round-decimal((($pxY / $viewport) * 100 * 1vw), 2);
+    }
+
+    @if ($pxBlur > 0) {
+        $pxBlur: round-decimal((($pxBlur / $viewport) * 100 * 1vw), 2);
+    }
+
+    filter: drop-shadow($pxX $pxY $pxBlur $color);
+}

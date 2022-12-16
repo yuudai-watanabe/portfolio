@@ -1,0 +1,20 @@
+@use "../../global" as *;
+.c-pd {
+    &__top {
+        padding-top: 120px;
+
+        @include mq(medium, max, true) {
+            padding-top: 80px;
+        }
+    }
+
+    &__mid {
+        padding-top: 120px;
+        padding-bottom: 120px;
+
+        @include mq(medium, max, true) {
+            padding-top: 80px;
+            padding-bottom: 80px;
+        }
+    }
+}

@@ -1,0 +1,154 @@
+/* ===============================================
+#blogMain
+=============================================== */
+.blogMain__cards
+{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+
+    -ms-flex-wrap: wrap;
+
+        flex-wrap: wrap;
+}
+
+.blogMain__card
+{
+    width: calc(33.3333333% - 26.6666666667px);
+}
+
+.blogMain__card:not(:nth-of-type(3n + 1))
+{
+    margin-left: 40px;
+}
+
+@media screen and (max-width: 1023px)
+{
+    .blogMain__card:not(:nth-of-type(3n + 1))
+    {
+        margin-left: 0;
+    }
+}
+.blogMain__card:nth-of-type(n + 4)
+{
+    margin-top: 40px;
+}
+
+@media screen and (max-width: 1023px)
+{
+    .blogMain__card
+    {
+        width: calc(50% - 20px);
+    }
+
+    .blogMain__card:not(:nth-of-type(2n + 1))
+    {
+        margin-left: 40px;
+    }
+
+    .blogMain__card:nth-of-type(n + 3)
+    {
+        margin-top: 40px;
+    }
+}
+@media screen and (max-width: 767px)
+{
+    .blogMain__card
+    {
+        width: 100%;
+    }
+
+    .blogMain__card:nth-of-type(n + 2)
+    {
+        margin-top: 40px;
+        margin-left: 0;
+    }
+}
+.blogMain__card:hover .blogMain__img::before
+{
+    opacity: 1;
+}
+
+.blogMain__card:hover .blogMain__img-title
+{
+    opacity: 1;
+}
+
+.blogMain__link
+{
+    display: block;
+}
+
+.blogMain__img-title
+{
+    font-size: 20px;
+    font-size: 2rem;
+
+    position: absolute;
+    top: 50%;
+    left: 0;
+
+    display: block;
+
+    width: 100%;
+
+    -webkit-transition: opacity .3s;
+
+    transition: opacity .3s;
+    -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
+    text-align: center;
+
+    opacity: 0;
+    color: #fff;
+}
+
+.blogMain__img
+{
+    position: relative;
+
+    margin-bottom: 20px;
+}
+
+.blogMain__img::before
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    content: '';
+    -webkit-transition: opacity .3s;
+    transition: opacity .3s;
+
+    opacity: 0;
+    background-color: rgba(0, 122, 183, .4);
+}
+
+.blogMain__img img
+{
+    -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, .4);
+            box-shadow: 0 0 10px rgba(0, 0, 0, .4);
+}
+
+.blogMain__card-title
+{
+    font-size: 20px;
+    font-size: 2rem;
+    font-weight: 700;
+
+    margin-bottom: 8px;
+}
+
+.blogMain__time
+{
+    display: block;
+
+    margin-bottom: 5px;
+}
+
+/* ==========================================================================
+   blogpage
+   ========================================================================== */

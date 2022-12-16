@@ -1,0 +1,37 @@
+@use "../../../global" as *;
+/* ===============================================
+#singleMain
+=============================================== */
+.singleMain {
+    background-color: rgba($color: $color-secondary, $alpha: 0.2);
+
+    &__inner {
+        max-width: 900px;
+    }
+
+    &__container {
+        background-color: #fff;
+        border-radius: 20px;
+        padding: 100px 80px;
+
+        @include mq(medium, max, true) {
+            padding: 60px 20px;
+        }
+
+        h1 {
+            text-align: center;
+            @include fontsize(36);
+            margin-bottom: 40px;
+
+            @include mq(medium, max, true) {
+                @include fontsize(24);
+            }
+        }
+    }
+
+    &__time {
+        display: block;
+        text-align: right;
+        margin-bottom: 40px;
+    }
+}

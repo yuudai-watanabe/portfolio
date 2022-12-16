@@ -1,0 +1,6 @@
+@use "sass:math";
+// remではベースとなるフォントサイズを元に値を計算するので、$base で初期値を設定しておきます。@include で呼び出すときは変更したいフォントサイズのみを入力すれば、$base を変更することなく出力できます。
+@mixin fontsize($size) {
+  font-size: $size + px;
+  font-size: math.div($size, 10) * 1rem;
+}

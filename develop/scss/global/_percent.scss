@@ -1,0 +1,98 @@
+// ==================================================================
+// pxを%変換する
+// ==================================================================
+
+// ==================================================================
+// widthを%に変換
+// ==================================================================
+// ％指定したい要素の横幅(px) ÷ 親要素の横幅(px) × 100
+// 呼び出し → @include width_percent(960, 300);
+@mixin width_percent( $parentPxWidth, $pxWidth ){
+    width: floor((( $pxWidth / $parentPxWidth ) * 10000% )) / 100;
+}
+
+// ==================================================================
+// heightを%に変換
+// ==================================================================
+// ％指定したい要素の高さ(px) ÷ 親要素の高さ(px) × 100
+// 呼び出し → @include height_percent(500, 300);
+@mixin height_percent($parentPxHeight, $pxHeight){
+    height: floor((($pxHeight / $parentPxHeight) * 10000%)) / 100;
+}
+
+// ==================================================================
+// marginを%に変換
+// ==================================================================
+// margin を px → % へ変換して指定
+// ％指定したい要素のmargin(px) ÷ 親要素の横幅(px) × 100
+// 呼び出し → @include margin_percent(500, 20, 5, 20, 5);
+@mixin margin_percent($parentPxWidth, $mTop, $mRight, $mBottom, $mLeft){
+    margin : floor((($mTop / $parentPxWidth) * 10000%)) / 100 floor((($mRight / $parentPxWidth) * 10000%)) / 100 floor((($mBottom / $parentPxWidth) * 10000%)) / 100 floor((($mLeft / $parentPxWidth) * 10000%)) / 100;
+}
+
+@mixin margin_percent_top($parentPxWidth, $mTop) {
+    margin-top: floor((($mTop / $parentPxWidth) * 10000%)) / 100;
+}
+@mixin margin_percent_left($parentPxWidth, $mLeft) {
+    margin-left: floor((($mLeft / $parentPxWidth) * 10000%)) / 100;
+}
+@mixin margin_percent_right($parentPxWidth, $mRight) {
+    margin-right: floor((($mRight / $parentPxWidth) * 10000%)) / 100;
+}
+@mixin margin_percent_bottom($parentPxWidth, $mBottom) {
+    margin-bottom: floor((($mBottom / $parentPxWidth) * 10000%)) / 100;
+}
+// ==================================================================
+// paddingを%に変換
+// ==================================================================
+// ％指定したい要素の padding(px) ÷ 親要素の横幅(px) × 100
+// 呼び出し → @include padding_percent(500, 20, 5, 20, 5);
+@mixin padding_percent($parentPxWidth, $pTop, $pRight, $pBottom, $pLeft){
+    padding : floor((($pTop / $parentPxWidth) * 10000%)) / 100 floor((($pRight / $parentPxWidth) * 10000%)) / 100 floor((($pBottom / $parentPxWidth) * 10000%)) / 100 floor((($pLeft / $parentPxWidth) * 10000%)) / 100;
+}
+@mixin padding_percent_top($parentPxWidth, $mTop) {
+    padding-top: floor((($mTop / $parentPxWidth) * 10000%)) / 100;
+}
+@mixin padding_percent_left($parentPxWidth, $mLeft) {
+    padding-left: floor((($mLeft / $parentPxWidth) * 10000%)) / 100;
+}
+@mixin padding_percent_right($parentPxWidth, $mRight) {
+    padding-right: floor((($mRight / $parentPxWidth) * 10000%)) / 100;
+}
+@mixin padding_percent_bottom($parentPxWidth, $mBottom) {
+    padding-bottom: floor((($mBottom / $parentPxWidth) * 10000%)) / 100;
+}
+// ==================================================================
+// positionを%に変換
+// ==================================================================
+// position: absolute の絶対値を px → % へ変換して指定
+// left right →　％指定したい要素の left 又は right 値(px) ÷ 親要素の横幅(px) × 100
+// top bottom → ％指定したい要素の top 又は bottom 値(px) ÷ 親要素の高さ(px) × 100
+
+// left値
+// ==================================================================
+// 呼び出し → @include position_left_percent(500, 50);
+@mixin position_left_percent($parentPxWidth, $pxLeft){
+    left: floor((($pxLeft / $parentPxWidth) * 10000%)) / 100;
+}
+
+// top値
+// ==================================================================
+// 呼び出し → @include position_top_percent(500, 50);
+@mixin position_top_percent($parentPxHeight, $pxTop){
+    top: floor((($pxTop / $parentPxHeight) * 10000%)) / 100;
+}
+
+// right値
+// ==================================================================
+// 呼び出し → @include position_right_percent(500, 50);
+@mixin position_right_percent($parentPxWidth, $pxRight){
+    right: floor((($pxRight / $parentPxWidth) * 10000%)) / 100;
+}
+
+// bottom値
+// ==================================================================
+// 呼び出し → @include position_bottom_percent(500, 50);
+@mixin position_bottom_percent($parentPxHeight, $pxBottom){
+    bottom: floor((($pxBottom / $parentPxHeight) * 10000%)) / 100;
+}

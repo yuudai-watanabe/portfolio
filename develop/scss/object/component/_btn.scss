@@ -1,0 +1,75 @@
+@use "../../global" as *;
+/* btn
+-------------------------------------------------------------------------- */
+.c-btn {
+    border: 1px solid currentColor;
+    background-color: #fff;
+    color: $color-primary;
+    overflow: hidden;
+    position: relative;
+    padding: 10px 0;
+    width: 200px;
+    display: block;
+    text-align: center;
+    transition: all 0.4s 0.1s;
+
+    @include mq(large, max, true) {
+    }
+
+    @include mq(medium, max, true) {
+        width: 100%;
+        max-width: 400px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    span {
+        position: absolute;
+        top: 0;
+        right: -50px;
+        bottom: 0;
+        left: 0;
+        border-right: 50px solid transparent;
+        border-bottom: 5.7em solid $color-primary;
+        transform: translateX(-100%);
+        z-index: -1;
+        transition: all 0.5s;
+    }
+
+    &:hover {
+        color: #fff;
+        transition: all 0.5s;
+
+        span {
+            transform: translateX(0);
+        }
+
+        &::before,
+        &::after {
+            background-color: #fff;
+            transition: all 0.3s 0.2s ease-in-out;
+        }
+    }
+
+    &::before,
+    &::after {
+        content: "";
+        position: absolute;
+        background-color: $color-primary;
+        height: 1px;
+        transition: all 0.4s 0.1s ease-in-out;
+    }
+
+    &::before {
+        width: 20px;
+        top: 22px;
+        right: 10px;
+    }
+
+    &::after {
+        top: 20px;
+        right: 10px;
+        width: 5px;
+        transform: rotate(30deg);
+    }
+}
