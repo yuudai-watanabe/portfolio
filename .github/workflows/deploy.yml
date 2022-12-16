@@ -10,7 +10,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3 
       - name: FTP-Deploy-Action
-        uses: SamKirkland/FTP-Deploy-Action@4.3.0 #最新のバージョンを使用
+        uses: SamKirkland/FTP-Deploy-Action@4.3.3 #最新のバージョンを使用
         with:
           server: ${{ secrets.FTP_SERVER }} #FTPサーバーのホスト
           username: ${{ secrets.FTP_USERNAME }} #FTPサーバーのアカウント名
@@ -19,18 +19,11 @@ jobs:
           port: 21 #ポート番号
           local-dir: ./ #ローカルのディレクトリ
           server-dir: ${{ secrets.REMOTE_DIR }} #デプロイ対象のディレクトリ
-          exclude: "[
-            .gitignore,
-            **/.git*,
-            **/.git/**,
-            **/.git*/**,
-            **/node_modules/**,
-            **/vendor/**,
-            .editorconfig,
-            README.md,
-            docker,
-            develop/**,
-            css/**,
-            image/**,
-            template-parts/**.
-            ]"
+          exclude: |
+          **/.git*
+          **/.git*/**
+          **/node_modules/**
+          develop/**
+          css/**
+          image/**
+          template-parts/**
