@@ -20,10 +20,10 @@ jobs:
           local-dir: ./ #ローカルのディレクトリ
           server-dir: ${{ secrets.REMOTE_DIR }} #デプロイ対象のディレクトリ
           exclude: |
-          **/.git*
-          **/.git*/**
-          **/node_modules/**
-          develop/**
-          css/**
-          image/**
-          template-parts/**
+            **/.git*
+            **/.git*/**
+            **/node_modules/**
+            develop/**
+            css/**
+            image/**
+            template-parts/**
