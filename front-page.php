@@ -100,7 +100,7 @@
                     </li>
                     <li class="about__list">
                         <div class="about__list-title">【私ができること】</div>
-                        <div class="about__list-text">Webサイトのコーディング、WordPress構築、ECサイト構築（shopify,BASE）</div>
+                        <div class="about__list-text">Webサイトのコーディング、WordPress構築、ECサイト構築（shopify,BASE）<br>プログラミング講師</div>
                     </li>
                     <li class="about__list">
                         <div class="about__list-title">【使用言語、アプリ】</div>
