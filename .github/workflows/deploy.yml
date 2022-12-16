@@ -23,7 +23,3 @@ jobs:
             **/.git*
             **/.git*/**
             **/node_modules/**
-            develop/**
-            css/**
-            image/**
-            template-parts/**
