@@ -19,3 +19,12 @@ jobs:
           port: 21 #ポート番号
           local-dir: ./ #ローカルのディレクトリ
           server-dir: ${{ secrets.REMOTE_DIR }} #デプロイ対象のディレクトリ
+          exclude: |
+          **/.git*
+          **/.git*/**
+          **/node_modules/**
+          ./docker
+          ./develop/**
+          ./css/**
+          ./image/**
+          ./template-parts/**
