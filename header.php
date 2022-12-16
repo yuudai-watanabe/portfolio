@@ -7,6 +7,18 @@
     <meta name="description" content="<?php bloginfo('description'); ?>" />
     <meta name="keywords" content="" />
     <?php wp_head(); ?>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-H7WV967HZF"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'G-H7WV967HZF');
+    </script>
 </head>
 
 <body>
